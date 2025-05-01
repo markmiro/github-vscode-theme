@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/primer/github-vscode-theme"
+    "url": "https://github.com/markmiro/github-vscode-theme"
   },
   "bugs": {
-    "url": "https://github.com/primer/github-vscode-theme/issues"
+    "url": "https://github.com/markmiro/github-vscode-theme/issues"
   },
   "engines": {
     "vscode": "^1.43.0"
@@ -27,42 +27,10 @@
     "theme",
     "github",
     "light",
-    "dark",
-    "protanopia",
-    "colorblind"
+    "dark"
   ],
   "contributes": {
     "themes": [
-      {
-        "label": "A GitHub Light Default",
-        "uiTheme": "vs",
-        "path": "./themes/light-default.json"
-      },
-      {
-        "label": "A GitHub Light High Contrast",
-        "uiTheme": "hc-light",
-        "path": "./themes/light-high-contrast.json"
-      },
-      {
-        "label": "A GitHub Light Colorblind (Beta)",
-        "uiTheme": "vs",
-        "path": "./themes/light-colorblind.json"
-      },
-      {
-        "label": "A GitHub Dark Default",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark-default.json"
-      },
-      {
-        "label": "A GitHub Dark High Contrast",
-        "uiTheme": "hc-black",
-        "path": "./themes/dark-high-contrast.json"
-      },
-      {
-        "label": "A GitHub Dark Colorblind (Beta)",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark-colorblind.json"
-      },
       {
         "label": "A GitHub Dark Dimmed 1 🔴 Red",
         "uiTheme": "vs-dark",
