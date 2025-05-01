@@ -64,11 +64,6 @@
         "path": "./themes/dark-colorblind.json"
       },
       {
-        "label": "A GitHub Dark Dimmed",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed.json"
-      },
-      {
         "label": "A GitHub Dark Dimmed 1 🔴 Red",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-dimmed-red.json"
