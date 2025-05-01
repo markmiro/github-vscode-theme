@@ -1,9 +1,9 @@
 {
   "name": "github-vscode-theme",
-  "displayName": "GitHub Theme",
-  "description": "GitHub theme for VS Code",
+  "displayName": "AA Theme",
+  "description": "AA theme for VS Code",
   "version": "6.3.5",
-  "publisher": "GitHub",
+  "publisher": "Mark Miro",
   "license": "MIT",
   "icon": "icon.png",
   "galleryBanner": {
@@ -34,49 +34,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "GitHub Light Default",
-        "uiTheme": "vs",
-        "path": "./themes/light-default.json"
-      },
-      {
-        "label": "GitHub Light High Contrast",
-        "uiTheme": "hc-light",
-        "path": "./themes/light-high-contrast.json"
-      },
-      {
-        "label": "GitHub Light Colorblind (Beta)",
-        "uiTheme": "vs",
-        "path": "./themes/light-colorblind.json"
-      },
-      {
-        "label": "GitHub Dark Default",
+        "label": "AA Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-default.json"
       },
       {
-        "label": "GitHub Dark High Contrast",
-        "uiTheme": "hc-black",
-        "path": "./themes/dark-high-contrast.json"
-      },
-      {
-        "label": "GitHub Dark Colorblind (Beta)",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark-colorblind.json"
-      },
-      {
-        "label": "GitHub Dark Dimmed",
+        "label": "AA Dark Dimmed",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-dimmed.json"
-      },
-      {
-        "label": "GitHub Light",
-        "uiTheme": "vs",
-        "path": "./themes/light.json"
-      },
-      {
-        "label": "GitHub Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark.json"
       }
     ]
   },
@@ -103,5 +68,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "culori": "4.0.1"
   }
 }

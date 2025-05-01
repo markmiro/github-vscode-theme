@@ -4,49 +4,49 @@ const getClassicTheme = require("./classic/theme");
 
 const lightDefaultTheme = getTheme({
   theme: "light",
-  name: "GitHub Light Default",
+  name: "AA Light Default",
 });
 
 const lightHighContrastTheme = getTheme({
   theme: "light_high_contrast",
-  name: "GitHub Light High Contrast"
-})
+  name: "AA Light High Contrast",
+});
 
 const lightColorblindTheme = getTheme({
   theme: "light_colorblind",
-  name: "GitHub Light Colorblind",
+  name: "AA Light Colorblind",
 });
 
 const darkDefaultTheme = getTheme({
   theme: "dark",
-  name: "GitHub Dark Default",
+  name: "AA Dark Default",
 });
 
 const darkHighContrastTheme = getTheme({
   theme: "dark_high_contrast",
-  name: "GitHub Dark High Contrast"
-})
+  name: "AA Dark High Contrast",
+});
 
 const darkColorblindTheme = getTheme({
   theme: "dark_colorblind",
-  name: "GitHub Dark Colorblind"
-})
+  name: "AA Dark Colorblind",
+});
 
 const darkDimmedTheme = getTheme({
   theme: "dark_dimmed",
-  name: "GitHub Dark Dimmed"
-})
+  name: "AA Dark Dimmed",
+});
 
 // Classic
 
 const lightTheme = getClassicTheme({
   style: "light",
-  name: "GitHub Light",
+  name: "AA Light",
 });
 
 const darkTheme = getClassicTheme({
   style: "dark",
-  name: "GitHub Dark",
+  name: "AA Dark",
 });
 
 // Write themes
