@@ -46,7 +46,7 @@ const darkDimmedRedTheme = getTheme({
 const darkDimmedOrangeTheme = getTheme({
   theme: "dark_dimmed",
   name: "AA Dark Dimmed Orange 🟠",
-  rotateHue: 75,
+  rotateHue: 80,
 });
 
 const darkDimmedGreenTheme = getTheme({
