@@ -34,9 +34,34 @@
   "contributes": {
     "themes": [
       {
-        "label": "AA Dark",
+        "label": "AA Light Default",
+        "uiTheme": "vs",
+        "path": "./themes/light-default.json"
+      },
+      {
+        "label": "AA Light High Contrast",
+        "uiTheme": "hc-light",
+        "path": "./themes/light-high-contrast.json"
+      },
+      {
+        "label": "AA Light Colorblind (Beta)",
+        "uiTheme": "vs",
+        "path": "./themes/light-colorblind.json"
+      },
+      {
+        "label": "AA Dark Default",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-default.json"
+      },
+      {
+        "label": "AA Dark High Contrast",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark-high-contrast.json"
+      },
+      {
+        "label": "AA Dark Colorblind (Beta)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-colorblind.json"
       },
       {
         "label": "AA Dark Dimmed",
