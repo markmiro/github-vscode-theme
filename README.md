@@ -1,24 +1,48 @@
-# GitHub's VS Code themes
+# Mark Miro's colorful variants of GitHub's VS Code themes
 
-![GitHub VS Code theme](https://user-images.githubusercontent.com/378023/132220037-3cd3e777-55a6-445f-9a2e-da6020ebd78d.png)
+Note: This is a fork of [GitHub's VS Code themes](https://github.com/primer/github-vscode-theme) with some color variants added.
 
 ## Install
 
-1. Go to [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
+1. Go to [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=markmiro.colorful-github-vscode-theme).
 2. Click on the "Install" button.
 3. Then [select a theme](https://code.visualstudio.com/docs/getstarted/themes#_selecting-the-color-theme). The GitHub themes try to match the themes available in [github.com's settings](https://github.com/settings/appearance):
-    - `GitHub Light Default`
-    - `GitHub Light High Contrast` ✨ new ✨
-    - `GitHub Light Colorblind` ✨ new ✨
-    - `GitHub Dark Default`
-    - `GitHub Dark High Contrast`
-    - `GitHub Dark Colorblind` ✨ new ✨
-    - `GitHub Dark Dimmed`
+- `A GitHub Dark Dimmed 1 🔴 Red`
+- `A GitHub Dark Dimmed 2 🟠 Orange`
+- `A GitHub Dark Dimmed 3 🟢 Green`
+- `A GitHub Dark Dimmed 4 🔵 Blue`
+- `A GitHub Dark Dimmed 5 🟣 Purple`
 
-Additionally, there are also two older themes. **Note**: They might not get updated frequently and are kept for legacy reasons:
+The best way to use them is to open multiple instances of VS Code and select a different theme for each instance. This makes it easy to spot the window you're looking for when you have multiple editor windows open.
 
-- `GitHub Light` (legacy)
-- `GitHub Dark` (legacy)
+To set the color, you have two options:
+1. Create a `.vscode/settings.json` file in your project and add the following:
+
+```json
+{
+  "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
+}
+```
+
+2. Create a workspace setting (ex: `github-vscode-theme.code-workspace`):
+
+```json
+{
+	"folders": [
+		{
+			"path": "github-vscode-theme"
+		}
+	],
+	"settings": {
+		"workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
+	}
+}
+```
+
+TODO:
+- [ ] Add a light theme
+- [ ] Add high contrast themes
+- [ ] Add muted variants
 
 ## Override this theme
 
@@ -26,22 +50,12 @@ To override this (or any other) theme in your personal config file, please follo
 
 ## Contribute
 
-1. Clone and open this [repo](https://github.com/primer/github-vscode-theme) in VS Code
+1. Clone and open this [repo](https://github.com/markmiro/github-vscode-theme) in VS Code
 2. Run `yarn` to install the dependencies.
 3. Press `F5` to open a new window with your extension loaded
 4. Open `Code > Preferences > Color Theme` [`⌘k ⌘t`] and pick the "GitHub ..." theme you want to test. Note: It seems this has to be done 2x because the first time it switches back to the default light theme. This might be a bug?
-5. Make changes to the [`/src/theme.js`](https://github.com/primer/github-vscode-theme/blob/master/src/theme.js) file.
+5. Make changes to the [`/src/theme.js`](https://github.com/markmiro/github-vscode-theme/blob/master/src/theme.js) file.
     - **UI**: For all changes to the "outer UI", like (status bar, file navigation etc.), take a look at the [Theme Color](https://code.visualstudio.com/api/references/theme-color) reference.
     - **Syntax**: For changes to the "code highlighting", examine the syntax scopes by invoking the [`Developer: Inspect Editor Tokens and Scopes`](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide#scope-inspector) command from the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) in the Extension Development Host window.
 6. Run `yarn build` to update the theme. You can also run `yarn start` instead to automatically rebuild the theme while making changes and no reloading should be necessary.
 7. Once you're happy, commit your changes and open a PR.
-
-Note:
-
-- If possible use colors from [Primer's color system](https://primer.style/primitives/colors).
-
-## Publish (internal)
-
-> Note: Publishing a new version of this theme is only meant for maintainers.
-
-This repo uses [changesets](https://github.com/atlassian/changesets) to automatically make updates to [CHANGELOG.md](https://github.com/primer/github-vscode-theme/blob/main/CHANGELOG.md) and publish a new version to the [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme).
