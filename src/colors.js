@@ -5,7 +5,7 @@ const darkColors = require("@primer/primitives/dist/json/colors/dark.json");
 const darkHighContrastColors = require("@primer/primitives/dist/json/colors/dark_high_contrast.json");
 const darkColorblindColors = require("@primer/primitives/dist/json/colors/dark_colorblind.json");
 const dimmedColors = require("@primer/primitives/dist/json/colors/dark_dimmed.json");
-const { oklch, formatHex } = require("culori");
+const { oklch, formatHex, formatHex8 } = require("culori");
 
 function warmifyGrayScale(colors, rotateHue = 0) {
   // TODO: handle alpha values too!
@@ -31,6 +31,20 @@ function warmifyGrayScale(colors, rotateHue = 0) {
 
   // Convert color to OKLCH and warm it
   const oklchColor = oklch(colors);
+  if (oklchColor.alpha) {
+    return formatHex8({
+      mode: "oklch",
+      // for light mode, (- 0.1)
+      l: oklchColor.l,
+      c: Math.min(oklchColor.c + 0.01, 0.05), // Add small amount of chroma
+      h: rotateHue, // Slight warm hue (towards red)
+      // h: 75, // Slight warm hue (towards yellow/orange)
+      // h: 100, // Slight warm hue (towards green)
+      // h: 200, // Slight warm hue (towards blue/green)
+      // h: 240, // Slight warm hue (towards blue)
+      alpha: oklchColor.alpha,
+    });
+  }
   return formatHex({
     mode: "oklch",
     // for light mode, (- 0.1)
@@ -41,6 +55,7 @@ function warmifyGrayScale(colors, rotateHue = 0) {
     // h: 100, // Slight warm hue (towards green)
     // h: 200, // Slight warm hue (towards blue/green)
     // h: 240, // Slight warm hue (towards blue)
+    alpha: oklchColor.alpha,
   });
 }
 
