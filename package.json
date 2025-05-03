@@ -55,6 +55,31 @@
         "label": "A GitHub Dark Dimmed 5 🟣 Purple",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-dimmed-purple.json"
+      },
+      {
+        "label": "A GitHub Light 1 🔴 Red",
+        "uiTheme": "vs",
+        "path": "./themes/light-red.json"
+      },
+      {
+        "label": "A GitHub Light 2 🟠 Orange",
+        "uiTheme": "vs",
+        "path": "./themes/light-orange.json"
+      },
+      {
+        "label": "A GitHub Light 3 🟢 Green",
+        "uiTheme": "vs",
+        "path": "./themes/light-green.json"
+      },
+      {
+        "label": "A GitHub Light 4 🔵 Blue",
+        "uiTheme": "vs",
+        "path": "./themes/light-blue.json"
+      },
+      {
+        "label": "A GitHub Light 5 🟣 Purple",
+        "uiTheme": "vs",
+        "path": "./themes/light-purple.json"
       }
     ]
   },

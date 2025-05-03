@@ -36,7 +36,7 @@ function warmifyGrayScale(colors, rotateHue = 0) {
       mode: "oklch",
       // for light mode, (- 0.1)
       l: oklchColor.l,
-      c: Math.min(oklchColor.c + 0.01, 0.05), // Add small amount of chroma
+      c: Math.min(oklchColor.c + 0.01, 0.05),
       h: rotateHue, // Slight warm hue (towards red)
       // h: 75, // Slight warm hue (towards yellow/orange)
       // h: 100, // Slight warm hue (towards green)
@@ -88,7 +88,7 @@ function getColors(theme, rotateHue = 100) {
       darkColors.border = warmifyGrayScale(darkColors.border, rotateHue);
       darkColors.neutral = warmifyGrayScale(darkColors.neutral, rotateHue);
 
-      console.log(darkColors.scale.gray);
+      // console.log(darkColors.scale.gray);
 
       return darkColors;
     case "dark_high_contrast":

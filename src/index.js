@@ -17,6 +17,36 @@ const lightColorblindTheme = getTheme({
   name: "AA Light Colorblind",
 });
 
+const lightRedTheme = getTheme({
+  theme: "light",
+  name: "AA Light Red 🔴",
+  rotateHue: 0,
+});
+
+const lightOrangeTheme = getTheme({
+  theme: "light",
+  name: "AA Light Orange 🟠",
+  rotateHue: 80,
+});
+
+const lightGreenTheme = getTheme({
+  theme: "light",
+  name: "AA Light Green 🟢",
+  rotateHue: 150,
+});
+
+const lightBlueTheme = getTheme({
+  theme: "light",
+  name: "AA Light Blue 🔵",
+  rotateHue: 240,
+});
+
+const lightPurpleTheme = getTheme({
+  theme: "light",
+  name: "AA Light Purple 🟣",
+  rotateHue: 300,
+});
+
 const darkDefaultTheme = getTheme({
   theme: "dark",
   name: "AA Dark Default",
@@ -134,6 +164,22 @@ fs.mkdir("./themes", { recursive: true })
       ),
       fs.writeFile("./themes/light.json", JSON.stringify(lightTheme, null, 2)),
       fs.writeFile("./themes/dark.json", JSON.stringify(darkTheme, null, 2)),
+      fs.writeFile(
+        "./themes/light-red.json",
+        JSON.stringify(lightRedTheme, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/light-orange.json",
+        JSON.stringify(lightOrangeTheme, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/light-green.json",
+        JSON.stringify(lightGreenTheme, null, 2)
+      ),
+      fs.writeFile(
+        "./themes/light-blue.json",
+        JSON.stringify(lightBlueTheme, null, 2)
+      ),
     ])
   )
   .catch(() => process.exit(1));

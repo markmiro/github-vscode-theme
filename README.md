@@ -12,6 +12,11 @@ Note: This is a fork of [GitHub's VS Code themes](https://github.com/primer/gith
 - `A GitHub Dark Dimmed 3 🟢 Green`
 - `A GitHub Dark Dimmed 4 🔵 Blue`
 - `A GitHub Dark Dimmed 5 🟣 Purple`
+- `A GitHub Light 1 🔴 Red`
+- `A GitHub Light 2 🟠 Orange`
+- `A GitHub Light 3 🟢 Green`
+- `A GitHub Light 4 🔵 Blue`
+- `A GitHub Light 5 🟣 Purple`
 
 The best way to use them is to open multiple instances of VS Code and select a different theme for each instance. This makes it easy to spot the window you're looking for when you have multiple editor windows open.
 
@@ -20,6 +25,7 @@ To set the color, you have two options:
 
 ```json
 {
+	"workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
   "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
 }
 ```
@@ -34,13 +40,14 @@ To set the color, you have two options:
 		}
 	],
 	"settings": {
+		"workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
 		"workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
 	}
 }
 ```
 
 TODO:
-- [ ] Add a light theme
+- [x] Add a light theme
 - [ ] Add high contrast themes
 - [ ] Add muted variants
 
