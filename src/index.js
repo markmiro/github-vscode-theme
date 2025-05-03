@@ -165,6 +165,10 @@ fs.mkdir("./themes", { recursive: true })
         "./themes/light-blue.json",
         JSON.stringify(lightBlueTheme, null, 2)
       ),
+      fs.writeFile(
+        "./themes/light-purple.json",
+        JSON.stringify(lightPurpleTheme, null, 2)
+      ),
     ])
   )
   .catch(() => process.exit(1));
