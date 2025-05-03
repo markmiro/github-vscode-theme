@@ -34,27 +34,27 @@
       {
         "label": "A GitHub Dark Dimmed 1 🔴 Red",
         "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed-red.json"
+        "path": "./themes/dark_dimmed-red.json"
       },
       {
         "label": "A GitHub Dark Dimmed 2 🟠 Orange",
         "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed-orange.json"
+        "path": "./themes/dark_dimmed-orange.json"
       },
       {
         "label": "A GitHub Dark Dimmed 3 🟢 Green",
         "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed-green.json"
+        "path": "./themes/dark_dimmed-green.json"
       },
       {
         "label": "A GitHub Dark Dimmed 4 🔵 Blue",
         "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed-blue.json"
+        "path": "./themes/dark_dimmed-blue.json"
       },
       {
         "label": "A GitHub Dark Dimmed 5 🟣 Purple",
         "uiTheme": "vs-dark",
-        "path": "./themes/dark-dimmed-purple.json"
+        "path": "./themes/dark_dimmed-purple.json"
       },
       {
         "label": "A GitHub Light 1 🔴 Red",

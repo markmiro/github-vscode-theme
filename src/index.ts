@@ -1,71 +1,82 @@
 import { promises as fs } from "fs";
 import { getTheme } from "./theme";
+import { BaseTheme, isLightTheme } from "./base-themes";
+import { Color, Oklch } from "culori";
+import { darkDimmedThemeTinter, lightThemeTinter } from "./tinters";
+import { colorHueMap, getThemeName } from "./util";
 
-// Dark dimmed themes
-// ---
+type ThemeStarter = {
+  color: string;
+  baseTheme: BaseTheme;
+  tint: (oklchColor: Oklch) => Color;
+};
 
-const darkDimmedRedTheme = getTheme({
-  theme: "dark_dimmed",
-  name: "A GitHub Dark Dimmed 1 🔴 Red",
-  rotateHue: 0,
-});
+const themeStarters = [
+  // dark dimmed themes
+  {
+    color: "red",
+    baseTheme: "dark_dimmed",
+    tint: darkDimmedThemeTinter(colorHueMap.red),
+  },
+  {
+    color: "orange",
+    baseTheme: "dark_dimmed",
+    tint: darkDimmedThemeTinter(colorHueMap.orange),
+  },
+  {
+    color: "green",
+    baseTheme: "dark_dimmed",
+    tint: darkDimmedThemeTinter(colorHueMap.green),
+  },
+  {
+    color: "blue",
+    baseTheme: "dark_dimmed",
+    tint: darkDimmedThemeTinter(colorHueMap.blue),
+  },
+  {
+    color: "purple",
+    baseTheme: "dark_dimmed",
+    tint: darkDimmedThemeTinter(colorHueMap.purple),
+  },
+  // light themes
+  {
+    color: "red",
+    baseTheme: "light",
+    tint: lightThemeTinter(colorHueMap.red),
+  },
+  {
+    color: "orange",
+    baseTheme: "light",
+    tint: lightThemeTinter(colorHueMap.orange),
+  },
+  {
+    color: "green",
+    baseTheme: "light",
+    tint: lightThemeTinter(colorHueMap.green),
+  },
+  {
+    color: "blue",
+    baseTheme: "light",
+    tint: lightThemeTinter(colorHueMap.blue),
+  },
+  {
+    color: "purple",
+    baseTheme: "light",
+    tint: lightThemeTinter(colorHueMap.purple),
+  },
+] as const satisfies ThemeStarter[];
 
-const darkDimmedOrangeTheme = getTheme({
-  theme: "dark_dimmed",
-  name: "A GitHub Dark Dimmed 2 🟠 Orange",
-  rotateHue: 80,
-});
+const tintedThemes = themeStarters.map((starter) => ({
+  baseTheme: starter.baseTheme,
+  themeConfig: getTheme({
+    theme: starter.baseTheme,
+    name: getThemeName(starter.color, starter.baseTheme),
+    tint: starter.tint,
+  }),
+  fileName: `${starter.baseTheme}-${starter.color}.json`,
+}));
 
-const darkDimmedGreenTheme = getTheme({
-  theme: "dark_dimmed",
-  name: "A GitHub Dark Dimmed 3 🟢 Green",
-  rotateHue: 150,
-});
-
-const darkDimmedBlueTheme = getTheme({
-  theme: "dark_dimmed",
-  name: "A GitHub Dark Dimmed 4 🔵 Blue",
-  rotateHue: 240,
-});
-
-const darkDimmedPurpleTheme = getTheme({
-  theme: "dark_dimmed",
-  name: "A GitHub Dark Dimmed 5 🟣 Purple",
-  rotateHue: 300,
-});
-
-// Light themes
-// ---
-
-const lightRedTheme = getTheme({
-  theme: "light",
-  name: "A GitHub Light 1 🔴 Red",
-  rotateHue: 0,
-});
-
-const lightOrangeTheme = getTheme({
-  theme: "light",
-  name: "A GitHub Light 2 🟠 Orange",
-  rotateHue: 80,
-});
-
-const lightGreenTheme = getTheme({
-  theme: "light",
-  name: "A GitHub Light 3 🟢 Green",
-  rotateHue: 150,
-});
-
-const lightBlueTheme = getTheme({
-  theme: "light",
-  name: "A GitHub Light 4 🔵 Blue",
-  rotateHue: 240,
-});
-
-const lightPurpleTheme = getTheme({
-  theme: "light",
-  name: "A GitHub Light 5 🟣 Purple",
-  rotateHue: 300,
-});
+console.log(tintedThemes);
 
 // Write themes
 // ---
@@ -73,48 +84,28 @@ const lightPurpleTheme = getTheme({
 fs.mkdir("./themes", { recursive: true })
   .then(() =>
     Promise.all([
-      // Dark dimmed themes
-      fs.writeFile(
-        "./themes/dark-dimmed-red.json",
-        JSON.stringify(darkDimmedRedTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/dark-dimmed-orange.json",
-        JSON.stringify(darkDimmedOrangeTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/dark-dimmed-green.json",
-        JSON.stringify(darkDimmedGreenTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/dark-dimmed-blue.json",
-        JSON.stringify(darkDimmedBlueTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/dark-dimmed-purple.json",
-        JSON.stringify(darkDimmedPurpleTheme, null, 2)
-      ),
-      // Light themes
-      fs.writeFile(
-        "./themes/light-red.json",
-        JSON.stringify(lightRedTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/light-orange.json",
-        JSON.stringify(lightOrangeTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/light-green.json",
-        JSON.stringify(lightGreenTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/light-blue.json",
-        JSON.stringify(lightBlueTheme, null, 2)
-      ),
-      fs.writeFile(
-        "./themes/light-purple.json",
-        JSON.stringify(lightPurpleTheme, null, 2)
+      tintedThemes.map((theme) =>
+        fs.writeFile(
+          `./themes/${theme.fileName}`,
+          JSON.stringify(theme.themeConfig, null, 2)
+        )
       ),
     ])
   )
   .catch(() => process.exit(1));
+
+// Update package.json
+// ---
+
+async function updatePackageJson() {
+  const packageJson = JSON.parse(await fs.readFile("./package.json", "utf8"));
+  packageJson.contributes.themes = tintedThemes.map((theme) => ({
+    label: theme.themeConfig.name,
+    uiTheme: isLightTheme(theme.baseTheme) ? "vs" : "vs-dark",
+    path: `./themes/${theme.fileName}`,
+  }));
+
+  fs.writeFile("./package.json", JSON.stringify(packageJson, null, 2));
+}
+
+updatePackageJson();
