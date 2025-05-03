@@ -1,6 +1,6 @@
-# Mark Miro's colorful variants of GitHub's VS Code themes
+# Colorful variants of GitHub's VS Code themes
 
-Note: This is a fork of [GitHub's VS Code themes](https://github.com/primer/github-vscode-theme) with some color variants added.
+This theme is not a replacement for the GitHub theme; it's a set of tinted variants. This is a fork of [GitHub's VS Code themes](https://github.com/primer/github-vscode-theme).
 
 ## Install
 
