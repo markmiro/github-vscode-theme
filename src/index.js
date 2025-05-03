@@ -1,6 +1,5 @@
 const fs = require("fs").promises;
 const getTheme = require("./theme");
-const getClassicTheme = require("./classic/theme");
 
 const lightDefaultTheme = getTheme({
   theme: "light",
@@ -97,18 +96,6 @@ const darkDimmedPurpleTheme = getTheme({
   rotateHue: 300,
 });
 
-// Classic
-
-const lightTheme = getClassicTheme({
-  style: "light",
-  name: "AA Light",
-});
-
-const darkTheme = getClassicTheme({
-  style: "dark",
-  name: "AA Dark",
-});
-
 // Write themes
 
 fs.mkdir("./themes", { recursive: true })
@@ -162,8 +149,6 @@ fs.mkdir("./themes", { recursive: true })
         "./themes/dark-dimmed-purple.json",
         JSON.stringify(darkDimmedPurpleTheme, null, 2)
       ),
-      fs.writeFile("./themes/light.json", JSON.stringify(lightTheme, null, 2)),
-      fs.writeFile("./themes/dark.json", JSON.stringify(darkTheme, null, 2)),
       fs.writeFile(
         "./themes/light-red.json",
         JSON.stringify(lightRedTheme, null, 2)
