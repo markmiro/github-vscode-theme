@@ -1,6 +1,37 @@
 # github-vscode-theme
 
+## 6.4.0
+
+### Minor Changes
+
+- Replace extension icon
+- Added new light themes:
+  - `A GitHub Light 1 🔴 Red`
+  - `A GitHub Light 2 🟠 Orange`
+  - `A GitHub Light 3 🟢 Green`
+  - `A GitHub Light 4 🔵 Blue`
+  - `A GitHub Light 5 🟣 Purple`
+- Various code cleanup
+- Update license (keep MIT, but use my name)
+
+## 6.3.6
+
+### Patch Changes
+
+First somewhat proper release of this forked theme.
+- Updated readme
+- Updated package.json
+
 ## 6.3.5
+
+🚨🚨🚨 6.3.5 was the first release of this forked theme with these themes:
+- `A GitHub Dark Dimmed 1 🔴 Red`
+- `A GitHub Dark Dimmed 2 🟠 Orange`
+- `A GitHub Dark Dimmed 3 🟢 Green`
+- `A GitHub Dark Dimmed 4 🔵 Blue`
+- `A GitHub Dark Dimmed 5 🟣 Purple`
+
+Below are the changes from the original repo.
 
 ### Patch Changes
 
