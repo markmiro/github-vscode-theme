@@ -1,25 +1,25 @@
-const lightColors = require("@primer/primitives/dist/json/colors/light.json");
-const lightHighContrastColors = require("@primer/primitives/dist/json/colors/light_high_contrast.json");
-const lightColorblindColors = require("@primer/primitives/dist/json/colors/light_colorblind.json");
-const darkColors = require("@primer/primitives/dist/json/colors/dark.json");
-const darkHighContrastColors = require("@primer/primitives/dist/json/colors/dark_high_contrast.json");
-const darkColorblindColors = require("@primer/primitives/dist/json/colors/dark_colorblind.json");
-const dimmedColors = require("@primer/primitives/dist/json/colors/dark_dimmed.json");
-const { oklch, formatHex, formatHex8 } = require("culori");
+import lightColors from "@primer/primitives/dist/json/colors/light.json";
+import lightHighContrastColors from "@primer/primitives/dist/json/colors/light_high_contrast.json";
+import lightColorblindColors from "@primer/primitives/dist/json/colors/light_colorblind.json";
+import darkColors from "@primer/primitives/dist/json/colors/dark.json";
+import darkHighContrastColors from "@primer/primitives/dist/json/colors/dark_high_contrast.json";
+import darkColorblindColors from "@primer/primitives/dist/json/colors/dark_colorblind.json";
+import dimmedColors from "@primer/primitives/dist/json/colors/dark_dimmed.json";
+import { oklch, formatHex, formatHex8, Color } from "culori";
 
-function tintColor(colors, hue = 0) {
+function tintColor(colors: any, hue = 0): any {
   // Handle array of colors
   if (Array.isArray(colors)) {
-    return colors.map((color) => tintColor(color, hue));
+    return colors.map((color: any) => tintColor(color, hue));
   }
 
   // Handle nested objects
   if (typeof colors === "object" && colors !== null) {
-    const warmedColors = {};
+    const tinted: any = {};
     for (const key in colors) {
-      warmedColors[key] = tintColor(colors[key], hue);
+      tinted[key] = tintColor(colors[key], hue);
     }
-    return warmedColors;
+    return tinted;
   }
 
   // Handle non-color values
@@ -29,7 +29,11 @@ function tintColor(colors, hue = 0) {
 
   const oklchColor = oklch(colors);
 
-  const newColor = {
+  if (!oklchColor) {
+    return colors;
+  }
+
+  const newColor: Color = {
     mode: "oklch",
     l: oklchColor.l,
     c: Math.min(oklchColor.c + 0.01, 0.05),
@@ -40,7 +44,7 @@ function tintColor(colors, hue = 0) {
   return oklchColor.alpha ? formatHex8(newColor) : formatHex(newColor);
 }
 
-function getColors(theme, rotateHue = 100) {
+export function getColors(theme: string, rotateHue = 100) {
   switch (theme) {
     case "light":
       lightColors.project = tintColor(lightColors.project, rotateHue);
@@ -83,7 +87,3 @@ function getColors(theme, rotateHue = 100) {
       throw new Error(`Colors are missing for value: ${theme}`);
   }
 }
-
-module.exports = {
-  getColors,
-};

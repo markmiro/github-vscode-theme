@@ -1,5 +1,5 @@
-const fs = require("fs").promises;
-const getTheme = require("./theme");
+import { promises as fs } from "fs";
+import { getTheme } from "./theme";
 
 // Dark dimmed themes
 // ---

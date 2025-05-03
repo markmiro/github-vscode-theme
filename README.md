@@ -48,10 +48,10 @@ To set the color, you have two options:
 
 TODO:
 - [x] Add a light theme
+- [x] Convert to TypeScript
 - [ ] Add a dark theme (in addition to existing dimmed dark variants)
 - [ ] Add high contrast themes
 - [ ] Add slightly muted variants
-- [ ] Convert to TypeScript
 
 ## Override this theme
 
