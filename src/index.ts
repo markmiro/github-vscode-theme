@@ -7,68 +7,117 @@ import {
   darkFgThemeTinter,
   lightFgThemeTinter,
   lightThemeTinter,
+  //
+  darkDimmedBrownFgThemeTinter,
+  darkDimmedBrownThemeTinter,
+  darkDimmedVampireFgThemeTinter,
+  darkDimmedVampireThemeTinter,
+  darkVampireThemeTinter,
+  darkVampireFgThemeTinter,
+  darkMutedThemeTinter,
+  darkMutedFgThemeTinter,
 } from "./tinters";
-import { colorHueMap, getThemeName } from "./util";
+import { colorHueMap, getThemeName, SupportedColor } from "./util";
 
 type ThemeStarter = {
-  color: string;
+  color: SupportedColor;
   baseTheme: BaseTheme;
   bgTint: (oklchColor: Oklch) => Color;
   fgTint?: (oklchColor: Oklch) => Color;
 };
 
 const themeStarters = [
+  {
+    color: "brown",
+    baseTheme: "dark_dimmed",
+    bgTint: darkDimmedBrownThemeTinter(colorHueMap.brown),
+    fgTint: darkDimmedBrownFgThemeTinter(colorHueMap.brown),
+  },
+  {
+    color: "muted",
+    baseTheme: "dark",
+    bgTint: darkMutedThemeTinter(colorHueMap.muted),
+    fgTint: darkMutedFgThemeTinter(colorHueMap.muted),
+  },
+  {
+    color: "muted",
+    baseTheme: "dark_dimmed",
+    bgTint: darkMutedThemeTinter(colorHueMap.muted),
+    fgTint: darkMutedFgThemeTinter(colorHueMap.muted),
+  },
+  {
+    color: "vampire",
+    baseTheme: "dark",
+    bgTint: darkVampireThemeTinter(colorHueMap.vampire),
+    fgTint: darkVampireFgThemeTinter(colorHueMap.vampire),
+  },
+  {
+    color: "vampire",
+    baseTheme: "dark_dimmed",
+    bgTint: darkDimmedVampireThemeTinter(colorHueMap.vampire),
+    fgTint: darkDimmedVampireFgThemeTinter(colorHueMap.vampire),
+  },
   // dark dimmed themes
   {
     color: "red",
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.red),
+    fgTint: undefined,
   },
   {
     color: "orange",
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.orange),
+    fgTint: undefined,
   },
   {
     color: "green",
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.green),
+    fgTint: undefined,
   },
   {
     color: "blue",
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.blue),
+    fgTint: undefined,
   },
   {
     color: "purple",
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.purple),
+    fgTint: undefined,
   },
   // light themes
   {
     color: "red",
     baseTheme: "light",
     bgTint: lightThemeTinter(colorHueMap.red),
+    fgTint: undefined,
   },
   {
     color: "orange",
     baseTheme: "light",
     bgTint: lightThemeTinter(colorHueMap.orange),
+    fgTint: undefined,
   },
   {
     color: "green",
     baseTheme: "light",
     bgTint: lightThemeTinter(colorHueMap.green),
+    fgTint: undefined,
   },
   {
     color: "blue",
     baseTheme: "light",
     bgTint: lightThemeTinter(colorHueMap.blue),
+    fgTint: undefined,
   },
   {
     color: "purple",
     baseTheme: "light",
     bgTint: lightThemeTinter(colorHueMap.purple),
+    fgTint: undefined,
   },
 ] as const satisfies ThemeStarter[];
 
@@ -79,9 +128,10 @@ const tintedThemes = themeStarters.map((starter) => ({
     name: getThemeName(starter.color, starter.baseTheme),
     bgTint: starter.bgTint,
     fgTint:
-      starter.baseTheme === "dark_dimmed"
+      starter.fgTint ??
+      (starter.baseTheme === "dark_dimmed"
         ? darkFgThemeTinter(colorHueMap[starter.color])
-        : lightFgThemeTinter(colorHueMap[starter.color]),
+        : lightFgThemeTinter(colorHueMap[starter.color])),
   }),
   fileName: `${starter.baseTheme}-${starter.color}.json`,
 }));

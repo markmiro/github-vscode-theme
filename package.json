@@ -32,6 +32,31 @@
   "contributes": {
     "themes": [
       {
+        "label": "A GitHub Dark Dimmed 🟤 Brown",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark_dimmed-brown.json"
+      },
+      {
+        "label": "A GitHub Dark 🩶 Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-muted.json"
+      },
+      {
+        "label": "A GitHub Dark Dimmed 🩶 Muted",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark_dimmed-muted.json"
+      },
+      {
+        "label": "A GitHub Dark 🧛 Vampire",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-vampire.json"
+      },
+      {
+        "label": "A GitHub Dark Dimmed 🧛 Vampire",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark_dimmed-vampire.json"
+      },
+      {
         "label": "A GitHub Dark Dimmed 1 🔴 Red",
         "uiTheme": "vs-dark",
         "path": "./themes/dark_dimmed-red.json"

@@ -1,7 +1,17 @@
 import { BaseTheme } from "./base-themes";
 
-const colors = ["red", "orange", "green", "blue", "purple"] as const;
-type SupportedColor = (typeof colors)[number];
+const colors = [
+  "red",
+  "orange",
+  "green",
+  "blue",
+  "purple",
+  //
+  "brown",
+  "vampire",
+  "muted",
+] as const;
+export type SupportedColor = (typeof colors)[number];
 
 export const colorHueMap = {
   red: 0,
@@ -9,6 +19,10 @@ export const colorHueMap = {
   green: 150,
   blue: 240,
   purple: 300,
+  //
+  brown: 10,
+  vampire: 290,
+  muted: 260,
 } as const satisfies Record<SupportedColor, number>;
 
 export const colorNumberMap = {
@@ -17,7 +31,11 @@ export const colorNumberMap = {
   green: 3,
   blue: 4,
   purple: 5,
-} as const satisfies Record<SupportedColor, number>;
+  //
+  brown: undefined,
+  vampire: undefined,
+  muted: undefined,
+} as const satisfies Record<SupportedColor, number | undefined>;
 
 export const colorEmojiMap = {
   red: "🔴",
@@ -25,6 +43,10 @@ export const colorEmojiMap = {
   green: "🟢",
   blue: "🔵",
   purple: "🟣",
+  //
+  brown: "🟤",
+  vampire: "🧛",
+  muted: "🩶",
 } as const satisfies Record<SupportedColor, string>;
 
 export const baseThemeIdToNameMap = {
@@ -32,16 +54,19 @@ export const baseThemeIdToNameMap = {
   light: "Light",
   // light_high_contrast: "Light High Contrast",
   // light_colorblind: "Light Colorblind",
-  // dark: "Dark",
+  dark: "Dark",
   // dark_high_contrast: "Dark High Contrast",
   // dark_colorblind: "Dark Colorblind",
 } as const satisfies Record<BaseTheme, string>;
 
 export function getThemeName(color: SupportedColor, baseTheme: BaseTheme) {
+  const prefix = "A GitHub";
   const baseThemeName = baseThemeIdToNameMap[baseTheme];
   const emoji = colorEmojiMap[color];
   const colorNumber = colorNumberMap[color];
   const colorCapitalized = color.charAt(0).toUpperCase() + color.slice(1);
 
-  return `A GitHub ${baseThemeName} ${colorNumber} ${emoji} ${colorCapitalized}`;
+  return [prefix, baseThemeName, colorNumber, emoji, colorCapitalized]
+    .filter(Boolean) // Remove undefined values
+    .join(" ");
 }
