@@ -1,7 +1,7 @@
 import chroma from "chroma-js";
-import { Oklch, Color } from "culori";
-import { BaseTheme, baseThemes } from "./base-themes";
-import { tintColor } from "./tinters";
+import { Color, Oklch } from "culori";
+import { BaseTheme, BaseThemeConfig } from "./base-themes";
+import { tintGrays } from "./tint-grays";
 
 // Choosing colors from primer/primitives
 // There are multiple ways to define what color is used:
@@ -16,24 +16,18 @@ import { tintColor } from "./tinters";
 export function getTheme({
   theme,
   name,
-  tint,
+  bgTint,
+  fgTint,
 }: {
   theme: BaseTheme;
   name: string;
-  tint: (oklchColor: Oklch) => Color;
+  bgTint: (oklchColor: Oklch) => Color;
+  fgTint?: (oklchColor: Oklch) => Color;
 }) {
   const themes = (options: any) => options[theme]; // Usage: themes({ light: "lightblue", light_high_contrast: "lightblue", light_colorblind: "lightblue", dark: "darkblue", dark_high_contrast: "darkblue", dark_colorblind: "darkblue", dark_dimmed: "royalblue" })
 
-  const themeConfig = baseThemes[theme];
-  themeConfig.project = tintColor(themeConfig.project, tint);
-  themeConfig.scale.gray = tintColor(themeConfig.scale.gray, tint);
-  themeConfig.fg = tintColor(themeConfig.fg, tint);
-  themeConfig.canvas = tintColor(themeConfig.canvas, tint);
-  themeConfig.border = tintColor(themeConfig.border, tint);
-  themeConfig.neutral = tintColor(themeConfig.neutral, tint);
-
-  const rawColors = themeConfig;
-  const color = changeColorToHexAlphas(rawColors);
+  const rawColors = tintGrays(theme, bgTint);
+  const color = changeColorToHexAlphas(rawColors) as BaseThemeConfig;
   const scale = color.scale; // Usage: scale.blue[6]
 
   const onlyDark = (color: any) => {
@@ -69,7 +63,7 @@ export function getTheme({
     return chroma(color).alpha(alpha).hex();
   };
 
-  return {
+  const exportedTheme = {
     name: name,
     colors: {
       focusBorder: color.accent.emphasis,
@@ -826,6 +820,15 @@ export function getTheme({
       },
     ],
   };
+
+  // @ts-ignore
+  exportedTheme.colors["editorHoverWidget.border"] =
+    color.editorHoverWidget.border;
+
+  // @ts-ignore
+  exportedTheme.colors["disabledForeground"] = color.disabledForeground;
+
+  return exportedTheme;
 }
 
 // Convert to hex

@@ -8,7 +8,8 @@ import { colorHueMap, getThemeName } from "./util";
 type ThemeStarter = {
   color: string;
   baseTheme: BaseTheme;
-  tint: (oklchColor: Oklch) => Color;
+  bgTint: (oklchColor: Oklch) => Color;
+  fgTint?: (oklchColor: Oklch) => Color;
 };
 
 const themeStarters = [
@@ -16,53 +17,53 @@ const themeStarters = [
   {
     color: "red",
     baseTheme: "dark_dimmed",
-    tint: darkDimmedThemeTinter(colorHueMap.red),
+    bgTint: darkDimmedThemeTinter(colorHueMap.red),
   },
   {
     color: "orange",
     baseTheme: "dark_dimmed",
-    tint: darkDimmedThemeTinter(colorHueMap.orange),
+    bgTint: darkDimmedThemeTinter(colorHueMap.orange),
   },
   {
     color: "green",
     baseTheme: "dark_dimmed",
-    tint: darkDimmedThemeTinter(colorHueMap.green),
+    bgTint: darkDimmedThemeTinter(colorHueMap.green),
   },
   {
     color: "blue",
     baseTheme: "dark_dimmed",
-    tint: darkDimmedThemeTinter(colorHueMap.blue),
+    bgTint: darkDimmedThemeTinter(colorHueMap.blue),
   },
   {
     color: "purple",
     baseTheme: "dark_dimmed",
-    tint: darkDimmedThemeTinter(colorHueMap.purple),
+    bgTint: darkDimmedThemeTinter(colorHueMap.purple),
   },
   // light themes
   {
     color: "red",
     baseTheme: "light",
-    tint: lightThemeTinter(colorHueMap.red),
+    bgTint: lightThemeTinter(colorHueMap.red),
   },
   {
     color: "orange",
     baseTheme: "light",
-    tint: lightThemeTinter(colorHueMap.orange),
+    bgTint: lightThemeTinter(colorHueMap.orange),
   },
   {
     color: "green",
     baseTheme: "light",
-    tint: lightThemeTinter(colorHueMap.green),
+    bgTint: lightThemeTinter(colorHueMap.green),
   },
   {
     color: "blue",
     baseTheme: "light",
-    tint: lightThemeTinter(colorHueMap.blue),
+    bgTint: lightThemeTinter(colorHueMap.blue),
   },
   {
     color: "purple",
     baseTheme: "light",
-    tint: lightThemeTinter(colorHueMap.purple),
+    bgTint: lightThemeTinter(colorHueMap.purple),
   },
 ] as const satisfies ThemeStarter[];
 
@@ -71,7 +72,7 @@ const tintedThemes = themeStarters.map((starter) => ({
   themeConfig: getTheme({
     theme: starter.baseTheme,
     name: getThemeName(starter.color, starter.baseTheme),
-    tint: starter.tint,
+    bgTint: starter.bgTint,
   }),
   fileName: `${starter.baseTheme}-${starter.color}.json`,
 }));
