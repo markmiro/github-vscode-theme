@@ -1,5 +1,18 @@
 # github-vscode-theme
 
+## 6.6.0
+
+### Minor Changes
+
+- Tweak dark dimmed colors so borders and disabled items are more vibrant
+- Add tinting to ansi colors
+- Added new themes:
+  - `A GitHub Dark Dimmed 🟤 Brown`
+  - `A GitHub Dark 🧛 Vampire`
+  - `A GitHub Dark Dimmed 🧛 Vampire`
+  - `A GitHub Dark 🩶 Muted`
+  - `A GitHub Dark Dimmed 🩶 Muted`
+
 ## 6.5.0
 
 ### Minor Changes
