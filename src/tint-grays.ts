@@ -3,10 +3,10 @@ import { tintColor } from "./tinters";
 import { baseThemes, BaseTheme, BaseThemeConfig } from "./base-themes";
 
 export function tintGrays(
-  theme: BaseTheme,
+  obj: BaseThemeConfig,
   bgTint: (oklchColor: Oklch) => Color
 ) {
-  const t = JSON.parse(JSON.stringify(baseThemes[theme])) as BaseThemeConfig;
+  const t = JSON.parse(JSON.stringify(obj)) as BaseThemeConfig;
 
   // @ts-ignore
   t.editorHoverWidget.border = tintColor(t.editorHoverWidget.border, bgTint);

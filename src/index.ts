@@ -2,7 +2,12 @@ import { promises as fs } from "fs";
 import { getTheme } from "./theme";
 import { BaseTheme, isLightTheme } from "./base-themes";
 import { Color, Oklch } from "culori";
-import { darkDimmedThemeTinter, lightThemeTinter } from "./tinters";
+import {
+  darkDimmedThemeTinter,
+  darkFgThemeTinter,
+  lightFgThemeTinter,
+  lightThemeTinter,
+} from "./tinters";
 import { colorHueMap, getThemeName } from "./util";
 
 type ThemeStarter = {
@@ -73,6 +78,10 @@ const tintedThemes = themeStarters.map((starter) => ({
     theme: starter.baseTheme,
     name: getThemeName(starter.color, starter.baseTheme),
     bgTint: starter.bgTint,
+    fgTint:
+      starter.baseTheme === "dark_dimmed"
+        ? darkFgThemeTinter(colorHueMap[starter.color])
+        : lightFgThemeTinter(colorHueMap[starter.color]),
   }),
   fileName: `${starter.baseTheme}-${starter.color}.json`,
 }));

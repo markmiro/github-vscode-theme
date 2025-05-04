@@ -1,7 +1,8 @@
 import chroma from "chroma-js";
 import { Color, Oklch } from "culori";
-import { BaseTheme, BaseThemeConfig } from "./base-themes";
+import { BaseTheme, BaseThemeConfig, baseThemes } from "./base-themes";
 import { tintGrays } from "./tint-grays";
+import { tintHued } from "./tint-hued";
 
 // Choosing colors from primer/primitives
 // There are multiple ways to define what color is used:
@@ -26,7 +27,11 @@ export function getTheme({
 }) {
   const themes = (options: any) => options[theme]; // Usage: themes({ light: "lightblue", light_high_contrast: "lightblue", light_colorblind: "lightblue", dark: "darkblue", dark_high_contrast: "darkblue", dark_colorblind: "darkblue", dark_dimmed: "royalblue" })
 
-  const rawColors = tintGrays(theme, bgTint);
+  const themeConfig = baseThemes[theme];
+  let rawColors = tintGrays(themeConfig, bgTint);
+  if (fgTint) {
+    rawColors = tintHued(rawColors, fgTint);
+  }
   const color = changeColorToHexAlphas(rawColors) as BaseThemeConfig;
   const scale = color.scale; // Usage: scale.blue[6]
 

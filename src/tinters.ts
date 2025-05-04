@@ -16,8 +16,28 @@ export function lightThemeTinter(hue: number): (oklchColor: Oklch) => Color {
   return (oklchColor: Oklch) => ({
     mode: "oklch",
     l: oklchColor.l,
-    c: Math.max(oklchColor.c + 0.01, 0.01),
+    c: Math.max(oklchColor.c + 0.02, 0.01),
     h: hue,
+    alpha: oklchColor.alpha,
+  });
+}
+
+export function darkFgThemeTinter(hue: number): (oklchColor: Oklch) => Color {
+  return (oklchColor: Oklch) => ({
+    mode: "oklch",
+    l: oklchColor.l,
+    c: oklchColor.c * 0.95,
+    h: ((oklchColor.h ?? 0) + 10) % 360,
+    alpha: oklchColor.alpha,
+  });
+}
+
+export function lightFgThemeTinter(hue: number): (oklchColor: Oklch) => Color {
+  return (oklchColor: Oklch) => ({
+    mode: "oklch",
+    l: oklchColor.l,
+    c: Math.max(oklchColor.c + 0.05, 0.01),
+    h: oklchColor.h,
     alpha: oklchColor.alpha,
   });
 }
