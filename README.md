@@ -30,7 +30,7 @@ To set the color, you have two options:
 
 ```json
 {
-	"workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
+  "workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
   "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
 }
 ```
@@ -39,15 +39,15 @@ To set the color, you have two options:
 
 ```json
 {
-	"folders": [
-		{
-			"path": "github-vscode-theme"
-		}
-	],
-	"settings": {
-		"workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
-		"workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
-	}
+  "folders": [
+    {
+      "path": "github-vscode-theme"
+    }
+  ],
+  "settings": {
+    "workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
+    "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
+  }
 }
 ```
 
