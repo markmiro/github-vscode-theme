@@ -1,5 +1,12 @@
 # github-vscode-theme
 
+## 6.7.0
+
+### Minor Changes
+
+- Update extension title and description
+- Fix spacing issues in readme
+
 ## 6.6.0
 
 ### Minor Changes
