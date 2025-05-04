@@ -17,11 +17,11 @@ This theme is not a replacement for the GitHub theme; it's a set of tinted varia
 - `A GitHub Light 3 🟢 Green`
 - `A GitHub Light 4 🔵 Blue`
 - `A GitHub Light 5 🟣 Purple`
-- `A GitHub Dark 🟤 Brown`
 - `A GitHub Dark 🧛 Vampire`
 - `A GitHub Dark Dimmed 🧛 Vampire`
 - `A GitHub Dark 🩶 Muted`
 - `A GitHub Dark Dimmed 🩶 Muted`
+- `A GitHub Dark Dimmed 🟤 Brown`
 
 The best way to use them is to open multiple instances of VS Code and select a different theme for each instance. This makes it easy to spot the window you're looking for when you have multiple editor windows open.
 
