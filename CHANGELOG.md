@@ -1,5 +1,14 @@
 # github-vscode-theme
 
+## 6.5.0
+
+### Minor Changes
+
+- Tint some missing grays
+- Use TypeScript
+- Tweak light theme to be more subtle
+- Adjust dark theme foreground hues and reduce foreground saturation
+
 ## 6.4.0
 
 ### Minor Changes
