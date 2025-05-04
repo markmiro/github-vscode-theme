@@ -2,7 +2,7 @@
   "name": "colorful-github-vscode-theme",
   "displayName": "A Colorful GitHub Theme",
   "description": "A theme for VS Code with multiple color variants so you can open multiple windows with different colors.",
-  "version": "6.4.0",
+  "version": "6.5.0",
   "publisher": "markmiro",
   "license": "MIT",
   "icon": "icon.png",
