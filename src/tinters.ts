@@ -6,7 +6,7 @@ export function darkDimmedThemeTinter(
   return (oklchColor: Oklch) => ({
     mode: "oklch",
     l: oklchColor.l,
-    c: Math.min(oklchColor.c + 0.01, 0.05),
+    c: Math.max(oklchColor.c + 0.01, 0.01),
     h: hue,
     alpha: oklchColor.alpha,
   });
@@ -16,7 +16,7 @@ export function lightThemeTinter(hue: number): (oklchColor: Oklch) => Color {
   return (oklchColor: Oklch) => ({
     mode: "oklch",
     l: oklchColor.l,
-    c: Math.min(oklchColor.c + 0.01, 0.05),
+    c: Math.max(oklchColor.c + 0.01, 0.01),
     h: hue,
     alpha: oklchColor.alpha,
   });
