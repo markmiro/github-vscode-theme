@@ -6,7 +6,7 @@ export function tintGrays(
   theme: BaseTheme,
   bgTint: (oklchColor: Oklch) => Color
 ) {
-  const t = baseThemes[theme] as BaseThemeConfig;
+  const t = JSON.parse(JSON.stringify(baseThemes[theme])) as BaseThemeConfig;
 
   // @ts-ignore
   t.editorHoverWidget.border = tintColor(t.editorHoverWidget.border, bgTint);
