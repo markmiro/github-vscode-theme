@@ -49,6 +49,8 @@ To set the color, you have two options:
 TODO:
 - [x] Add a light theme
 - [x] Convert to TypeScript
+- [ ] Find the rest of the grays (for tinting)
+- [ ] Add foreground color tinting (mostly for color tempurature)
 - [ ] Add a dark theme (in addition to existing dimmed dark variants)
 - [ ] Add high contrast themes
 - [ ] Add slightly muted variants
