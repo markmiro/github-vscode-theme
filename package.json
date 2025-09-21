@@ -82,6 +82,31 @@
         "path": "./themes/dark_dimmed-purple.json"
       },
       {
+        "label": "A GitHub Dark High Contrast 1 🔴 Red",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark_contrast-red.json"
+      },
+      {
+        "label": "A GitHub Dark High Contrast 2 🟠 Orange",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark_contrast-orange.json"
+      },
+      {
+        "label": "A GitHub Dark High Contrast 3 🟢 Green",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark_contrast-green.json"
+      },
+      {
+        "label": "A GitHub Dark High Contrast 4 🔵 Blue",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark_contrast-blue.json"
+      },
+      {
+        "label": "A GitHub Dark High Contrast 5 🟣 Purple",
+        "uiTheme": "hc-black",
+        "path": "./themes/dark_contrast-purple.json"
+      },
+      {
         "label": "A GitHub Light 1 🔴 Red",
         "uiTheme": "vs",
         "path": "./themes/light-red.json"

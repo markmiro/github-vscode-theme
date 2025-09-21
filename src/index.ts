@@ -16,6 +16,8 @@ import {
   darkVampireFgThemeTinter,
   darkMutedThemeTinter,
   darkMutedFgThemeTinter,
+  darkContrastThemeTinter,
+  darkContastFgThemeTinter,
 } from "./tinters";
 import { colorHueMap, getThemeName, SupportedColor } from "./util";
 
@@ -87,6 +89,37 @@ const themeStarters = [
     baseTheme: "dark_dimmed",
     bgTint: darkDimmedThemeTinter(colorHueMap.purple),
     fgTint: undefined,
+  },
+  // dark contrast themes
+  {
+    color: "red",
+    baseTheme: "dark_contrast",
+    bgTint: darkContrastThemeTinter(colorHueMap.red),
+    fgTint: darkContastFgThemeTinter(colorHueMap.red),
+  },
+  {
+    color: "orange",
+    baseTheme: "dark_contrast",
+    bgTint: darkContrastThemeTinter(colorHueMap.orange),
+    fgTint: darkContastFgThemeTinter(colorHueMap.orange),
+  },
+  {
+    color: "green",
+    baseTheme: "dark_contrast",
+    bgTint: darkContrastThemeTinter(colorHueMap.green),
+    fgTint: darkContastFgThemeTinter(colorHueMap.green),
+  },
+  {
+    color: "blue",
+    baseTheme: "dark_contrast",
+    bgTint: darkContrastThemeTinter(colorHueMap.blue),
+    fgTint: darkContastFgThemeTinter(colorHueMap.blue),
+  },
+  {
+    color: "purple",
+    baseTheme: "dark_contrast",
+    bgTint: darkContrastThemeTinter(colorHueMap.purple),
+    fgTint: darkContastFgThemeTinter(colorHueMap.purple),
   },
   // light themes
   {
@@ -161,7 +194,11 @@ async function updatePackageJson() {
   const packageJson = JSON.parse(await fs.readFile("./package.json", "utf8"));
   packageJson.contributes.themes = tintedThemes.map((theme) => ({
     label: theme.themeConfig.name,
-    uiTheme: isLightTheme(theme.baseTheme) ? "vs" : "vs-dark",
+    uiTheme: isLightTheme(theme.baseTheme)
+      ? "vs"
+      : theme.baseTheme === "dark_contrast"
+      ? "hc-black"
+      : "vs-dark",
     path: `./themes/${theme.fileName}`,
   }));
 

@@ -12,6 +12,19 @@ export function darkDimmedThemeTinter(
   });
 }
 
+export function darkContrastThemeTinter(
+  hue: number
+): (oklchColor: Oklch) => Color {
+  return (oklchColor: Oklch) => ({
+    mode: "oklch",
+    l: oklchColor.l + 0.04,
+    // c: oklchColor.c,
+    c: Math.max(oklchColor.c + 0.02, 0.02),
+    h: hue,
+    alpha: oklchColor.alpha,
+  });
+}
+
 export function darkDimmedBrownThemeTinter(
   hue: number
 ): (oklchColor: Oklch) => Color {
@@ -133,6 +146,18 @@ export function darkFgThemeTinter(hue: number): (oklchColor: Oklch) => Color {
     l: oklchColor.l,
     c: oklchColor.c * 0.95,
     h: ((oklchColor.h ?? 0) + 10) % 360,
+    alpha: oklchColor.alpha,
+  });
+}
+
+export function darkContastFgThemeTinter(
+  hue: number
+): (oklchColor: Oklch) => Color {
+  return (oklchColor: Oklch) => ({
+    mode: "oklch",
+    l: oklchColor.l,
+    c: oklchColor.c,
+    h: oklchColor.h,
     alpha: oklchColor.alpha,
   });
 }

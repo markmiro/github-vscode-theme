@@ -55,7 +55,7 @@ export const baseThemeIdToNameMap = {
   // light_high_contrast: "Light High Contrast",
   // light_colorblind: "Light Colorblind",
   dark: "Dark",
-  // dark_high_contrast: "Dark High Contrast",
+  dark_contrast: "Dark High Contrast",
   // dark_colorblind: "Dark Colorblind",
 } as const satisfies Record<BaseTheme, string>;
 

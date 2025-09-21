@@ -12,7 +12,7 @@ import { tintHued } from "./tint-hued";
 // 2. Color scale
 //    e.g. "textLink.foreground": scale.blue[5],
 // 3. Per theme. Useful when a certain theme needs an exception
-//    e.g. "textLink.foreground": themes({ light: scale.blue[5], light_high_contrast: scale.blue[5], light_colorblind: scale.blue[5], dark: scale.blue[2], dark_high_contrast: scale.blue[3], dark_colorblind: scale.blue[2], dark_dimmed: scale.blue[3] }),
+//    e.g. "textLink.foreground": themes({ light: scale.blue[5], light_high_contrast: scale.blue[5], light_colorblind: scale.blue[5], dark: scale.blue[2], dark_contrast: scale.blue[3], dark_colorblind: scale.blue[2], dark_dimmed: scale.blue[3] }),
 
 export function getTheme({
   theme,
@@ -25,7 +25,7 @@ export function getTheme({
   bgTint: (oklchColor: Oklch) => Color;
   fgTint?: (oklchColor: Oklch) => Color;
 }) {
-  const themes = (options: any) => options[theme]; // Usage: themes({ light: "lightblue", light_high_contrast: "lightblue", light_colorblind: "lightblue", dark: "darkblue", dark_high_contrast: "darkblue", dark_colorblind: "darkblue", dark_dimmed: "royalblue" })
+  const themes = (options: any) => options[theme]; // Usage: themes({ light: "lightblue", light_high_contrast: "lightblue", light_colorblind: "lightblue", dark: "darkblue", dark_contrast: "darkblue", dark_colorblind: "darkblue", dark_dimmed: "royalblue" })
 
   const themeConfig = baseThemes[theme];
   let rawColors = tintGrays(themeConfig, bgTint);
@@ -38,18 +38,18 @@ export function getTheme({
   const onlyDark = (color: any) => {
     return themes({
       dark: color,
-      dark_high_contrast: color,
+      dark_contrast: color,
       dark_colorblind: color,
       dark_dimmed: color,
     });
   };
 
   const onlyHighContrast = (color: any) => {
-    return themes({ light_high_contrast: color, dark_high_contrast: color });
+    return themes({ light_high_contrast: color, dark_contrast: color });
   };
 
   const onlyDarkHighContrast = (color: any) => {
-    return themes({ dark_high_contrast: color });
+    return themes({ dark_contrast: color });
   };
 
   const lightDark = (light: any, dark: any) => {
@@ -58,7 +58,7 @@ export function getTheme({
       light_high_contrast: light,
       light_colorblind: light,
       dark: dark,
-      dark_high_contrast: dark,
+      dark_contrast: dark,
       dark_colorblind: dark,
       dark_dimmed: dark,
     });
@@ -230,12 +230,14 @@ export function getTheme({
       "editor.selectionForeground": onlyHighContrast(color.fg.onEmphasis),
 
       // TODO: Fix High Contrast themes
-      // "editor.selectionBackground": onlyHighContrast(
-      //   color.neutral.emphasisPlus
-      // ),
-      // "editor.inactiveSelectionBackground": onlyHighContrast(
-      //   color.neutral.emphasis
-      // ),
+      // @ts-ignore
+      "editor.selectionBackground": onlyHighContrast(
+        color.neutral.emphasisPlus
+      ),
+      // @ts-ignore
+      "editor.inactiveSelectionBackground": onlyHighContrast(
+        color.neutral.emphasis
+      ),
 
       "editorInlayHint.background": alpha(scale.gray[3], 0.2),
       "editorInlayHint.foreground": color.fg.muted,

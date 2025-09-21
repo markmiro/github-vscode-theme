@@ -2,7 +2,7 @@ import lightColors from "@primer/primitives/dist/json/colors/light.json";
 // import lightHighContrastColors from "@primer/primitives/dist/json/colors/light_high_contrast.json";
 // import lightColorblindColors from "@primer/primitives/dist/json/colors/light_colorblind.json";
 import darkColors from "@primer/primitives/dist/json/colors/dark.json";
-// import darkHighContrastColors from "@primer/primitives/dist/json/colors/dark_high_contrast.json";
+import darkHighContrastColors from "@primer/primitives/dist/json/colors/dark_high_contrast.json";
 // import darkColorblindColors from "@primer/primitives/dist/json/colors/dark_colorblind.json";
 import dimmedColors from "@primer/primitives/dist/json/colors/dark_dimmed.json";
 
@@ -33,6 +33,13 @@ export const baseThemes = {
     },
     disabledForeground: "#cccccc80",
   },
+  dark_contrast: {
+    ...darkHighContrastColors,
+    editorHoverWidget: {
+      border: "#454545",
+    },
+    disabledForeground: "#cccccc80",
+  },
 } as const satisfies Record<string, any>;
 
 export type BaseThemeConfig = {
@@ -40,9 +47,7 @@ export type BaseThemeConfig = {
 };
 
 export function isLightTheme(theme: BaseTheme) {
-  return (
-    theme === "light"
-  );
+  return theme === "light";
 }
 
 export type BaseTheme = keyof typeof baseThemes;
