@@ -1,5 +1,16 @@
 # github-vscode-theme
 
+## 6.8.0
+
+### Minor Changes
+
+- Add dark high contrast themes:
+  - `A GitHub Dark High Contrast 1 🔴 Red`
+  - `A GitHub Dark High Contrast 2 🟠 Orange`
+  - `A GitHub Dark High Contrast 3 🟢 Green`
+  - `A GitHub Dark High Contrast 4 🔵 Blue`
+  - `A GitHub Dark High Contrast 5 🟣 Purple`
+
 ## 6.7.0
 
 ### Minor Changes
