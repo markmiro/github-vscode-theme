@@ -12,6 +12,11 @@ This theme is not a replacement for the GitHub theme; it's a set of tinted varia
 - `A GitHub Dark Dimmed 3 🟢 Green`
 - `A GitHub Dark Dimmed 4 🔵 Blue`
 - `A GitHub Dark Dimmed 5 🟣 Purple`
+- `A GitHub Dark High Contrast 1 🔴 Red`
+- `A GitHub Dark High Contrast 2 🟠 Orange`
+- `A GitHub Dark High Contrast 3 🟢 Green`
+- `A GitHub Dark High Contrast 4 🔵 Blue`
+- `A GitHub Dark High Contrast 5 🟣 Purple`
 - `A GitHub Light 1 🔴 Red`
 - `A GitHub Light 2 🟠 Orange`
 - `A GitHub Light 3 🟢 Green`
@@ -31,7 +36,7 @@ To set the color, you have two options:
 ```json
 {
   "workbench.preferredLightColorTheme": "A GitHub Light 1 🔴 Red",
-  "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red"
+  "workbench.preferredDarkColorTheme": "A GitHub Dark Dimmed 1 🔴 Red",
 }
 ```
 
